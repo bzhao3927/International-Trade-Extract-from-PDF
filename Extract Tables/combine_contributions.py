@@ -34,7 +34,7 @@ def process_file(filepath):
     for sheet in xls.sheet_names:
         print(f" Reading sheet: {sheet}")
         try:
-            skip = 2 if year <= 2010 else 0
+            skip = 1 if year <= 2010 else 0
             df = xls.parse(sheet_name=sheet, skiprows=skip, dtype=str)
 
             print(f"  Sheet shape: {df.shape}")
@@ -109,11 +109,15 @@ if __name__ == "__main__":
     merged = merge_all(folder)
 
     if not merged.empty:
-        merged = merged[['year', 'country', 'annual_contributions',
+        merged = merged[['country', 'year', 'annual_contributions',
                          'total_outstanding_contributions', 'assessed_contributions']]
+        # Remove rows where country contains 'total' (case-insensitive)
+        merged = merged[~merged['country'].str.lower().str.contains('total')]
+
         print(f"\nFinal merged data sample:")
         print(merged.head(10))
         merged.to_excel('contributions_2000-2016.xlsx', index=False)
         print("\nSaved merged data to contributions_2000-2016.xlsx")
     else:
         print("No data merged.")
+
