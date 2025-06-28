@@ -1,29 +1,6 @@
-# LangChain + OpenAI ecosystem
-langchain==0.2.15
-langchain-core==0.2.41
-langchain-openai==0.1.23
-langchain-community==0.2.13
-openai==1.47.0
-
-# Pydantic & OpenAPI dependencies
-pydantic==2.9.2
-pydantic-settings==2.5.2
-pydantic_core==2.23.4
-openapi-schema-pydantic==1.2.4
-
-# Data processing and IO
-pandas==2.2.2
-openpyxl>=3.0.10
-beautifulsoup4>=4.11.0
-
-# PDF and OCR
-PyMuPDF==1.23.24
-pytesseract==0.3.10
-Pillow==10.3.0
-
-# Web & UI
-gradio==4.25.0
-python-dotenv==1.0.1
-
-# Agentic Doc Parser
-agentic-doc>=0.1.0
+pandas
+openpyxl
+langchain
+langchain-openai
+python-dotenv
+agentic-doc
